@@ -6,20 +6,20 @@ module pfcluster = PFClusterProducer {
 	untracked string ecalRecHitsEEModuleLabel         = "ecalRecHit"
 	untracked string ecalRecHitsEEProductInstanceName = "EcalRecHitsEE"
 
-	untracked string ecalRecHitsESModuleLabel         = "ecalRecHit"
+	untracked string ecalRecHitsESModuleLabel         = "esRecHit"
 	untracked string ecalRecHitsESProductInstanceName = "EcalRecHitsES"
 
 	untracked bool   process_Ecal       = true	
 	untracked bool   process_Hcal       = true
-	untracked bool   process_PS         = false
+	untracked bool   process_PS         = true
 
 	untracked double thresh_Ecal_Barrel = 0.2
 	untracked double thresh_Seed_Ecal_Barrel = 0.3	
 	untracked double thresh_Ecal_Endcap = 0.5
 	untracked double thresh_Seed_Ecal_Endcap = 0.9	
 
-	untracked double thresh_PS = 0.0001
-	untracked double thresh_Seed_PS = 0.001	
+	untracked double thresh_PS = 0.00001
+	untracked double thresh_Seed_PS = 0.0001	
 
 	untracked int32  depthCor_Mode = 1
 	untracked double depthCor_A =  0.89

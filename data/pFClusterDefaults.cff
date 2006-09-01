@@ -1,4 +1,4 @@
-module pfcluster = PFClusterProducer { 
+module particleFlowCluster = PFClusterProducer { 
 
 	untracked string ecalRecHitsEBModuleLabel         = "ecalRecHit"
 	untracked string ecalRecHitsEBProductInstanceName = "EcalRecHitsEB"
@@ -6,7 +6,7 @@ module pfcluster = PFClusterProducer {
 	untracked string ecalRecHitsEEModuleLabel         = "ecalRecHit"
 	untracked string ecalRecHitsEEProductInstanceName = "EcalRecHitsEE"
 
-	untracked string ecalRecHitsESModuleLabel         = "esRecHit"
+	untracked string ecalRecHitsESModuleLabel         = "ecalPreshowerRecHit"
 	untracked string ecalRecHitsESProductInstanceName = "EcalRecHitsES"
 
 	untracked bool   process_Ecal       = true	

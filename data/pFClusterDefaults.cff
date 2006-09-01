@@ -1,34 +1,36 @@
 module particleFlowCluster = PFClusterProducer { 
-
-	untracked string ecalRecHitsEBModuleLabel         = "ecalRecHit"
-	untracked string ecalRecHitsEBProductInstanceName = "EcalRecHitsEB"
-
-	untracked string ecalRecHitsEEModuleLabel         = "ecalRecHit"
-	untracked string ecalRecHitsEEProductInstanceName = "EcalRecHitsEE"
-
-	untracked string ecalRecHitsESModuleLabel         = "ecalPreshowerRecHit"
-	untracked string ecalRecHitsESProductInstanceName = "EcalRecHitsES"
-
-	untracked bool   process_Ecal       = true	
-	untracked bool   process_Hcal       = true
-	untracked bool   process_PS         = true
-
-	untracked double thresh_Ecal_Barrel = 0.2
-	untracked double thresh_Seed_Ecal_Barrel = 0.3	
-	untracked double thresh_Ecal_Endcap = 0.5
-	untracked double thresh_Seed_Ecal_Endcap = 0.9	
-
-	untracked double thresh_PS = 0.00001
-	untracked double thresh_Seed_PS = 0.0001	
-
-	untracked int32  depthCor_Mode = 1
-	untracked double depthCor_A =  0.89
-	untracked double depthCor_B =  7.3
-	untracked double depthCor_A_preshower = 0.89
-	untracked double depthCor_B_preshower = 4.0
-
-	untracked double thresh_Hcal_Barrel = 1.
-	untracked double thresh_Seed_Hcal_Barrel = 1.4	
-	untracked double thresh_Hcal_Endcap = 1.
-	untracked double thresh_Seed_Hcal_Endcap = 1.4	
+    
+    untracked bool   produceRecHits  = true
+    
+    untracked string ecalRecHitsEBModuleLabel         = "ecalRecHit"
+    untracked string ecalRecHitsEBProductInstanceName = "EcalRecHitsEB"
+    
+    untracked string ecalRecHitsEEModuleLabel         = "ecalRecHit"
+    untracked string ecalRecHitsEEProductInstanceName = "EcalRecHitsEE"
+    
+    untracked string ecalRecHitsESModuleLabel         = "ecalPreshowerRecHit"
+    untracked string ecalRecHitsESProductInstanceName = "EcalRecHitsES"
+    
+    untracked bool   process_Ecal       = true	
+    untracked bool   process_Hcal       = true
+    untracked bool   process_PS         = true
+    
+    untracked double thresh_Ecal_Barrel = 0.2
+    untracked double thresh_Seed_Ecal_Barrel = 0.3	
+    untracked double thresh_Ecal_Endcap = 0.5
+    untracked double thresh_Seed_Ecal_Endcap = 0.9	
+    
+    untracked double thresh_PS = 0.00001
+    untracked double thresh_Seed_PS = 0.0001	
+    
+    untracked int32  depthCor_Mode = 1
+    untracked double depthCor_A =  0.89
+    untracked double depthCor_B =  7.3
+    untracked double depthCor_A_preshower = 0.89
+    untracked double depthCor_B_preshower = 4.0
+    
+    untracked double thresh_Hcal_Barrel = 1.
+    untracked double thresh_Seed_Hcal_Barrel = 1.4	
+    untracked double thresh_Hcal_Endcap = 1.
+    untracked double thresh_Seed_Hcal_Endcap = 1.4	
 }

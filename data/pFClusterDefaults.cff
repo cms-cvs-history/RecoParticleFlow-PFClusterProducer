@@ -25,13 +25,13 @@ module particleFlowCluster = PFClusterProducer {
     # all thresholds are in GeV
     
     # cell threshold in ECAL barrel 
-    double thresh_Ecal_Barrel = 0.2
+    double thresh_Ecal_Barrel = 0.1
     
     # seed threshold in ECAL barrel 
     double thresh_Seed_Ecal_Barrel = 0.3	
     
     # cell threshold in ECAL endcap 
-    double thresh_Ecal_Endcap = 0.5
+    double thresh_Ecal_Endcap = 0.3
     
     # seed threshold in ECAL endcap 
     double thresh_Seed_Ecal_Endcap = 0.9	

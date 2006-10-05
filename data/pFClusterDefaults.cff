@@ -13,14 +13,23 @@ module particleFlowCluster = PFClusterProducer {
     untracked string ecalRecHitsESModuleLabel         = "ecalPreshowerRecHit"
     untracked string ecalRecHitsESProductInstanceName = "EcalRecHitsES"
     
-    # perform clustering in ECAL ?
-    untracked bool   process_Ecal       = true	
+    # process ECAL ?
+    untracked bool   process_Ecal       = true
     
-    # perform clustering in HCAL ?
+    # process HCAL ?
     untracked bool   process_Hcal       = true
     
-    # perform clustering in preshower ?
+    # process preshower ?
     untracked bool   process_PS         = true
+    
+    # clustering in ECAL ?
+    untracked bool   clustering_Ecal       = true
+    
+    # clustering in HCAL ?
+    untracked bool   clustering_Hcal       = true
+    
+    # clustering in preshower ?
+    untracked bool   clustering_PS         = true
     
     # all thresholds are in GeV
     

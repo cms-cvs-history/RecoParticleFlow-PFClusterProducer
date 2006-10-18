@@ -2,8 +2,8 @@ module particleFlowCluster = PFClusterProducer {
     
     # if yes, rechits will be saved to the event as well as clusters
     # this is useful for redoing the clustering later
-    untracked bool   produceRecHits  = true
-    
+    untracked bool   produce_RecHits  = true
+
     untracked string ecalRecHitsEBModuleLabel         = "ecalRecHit"
     untracked string ecalRecHitsEBProductInstanceName = "EcalRecHitsEB"
     
@@ -13,13 +13,13 @@ module particleFlowCluster = PFClusterProducer {
     untracked string ecalRecHitsESModuleLabel         = "ecalPreshowerRecHit"
     untracked string ecalRecHitsESProductInstanceName = "EcalRecHitsES"
     
-    # process ECAL ?
-    untracked bool   process_Ecal       = true
+    # perform clustering in ECAL ?
+    untracked bool   process_Ecal       = true	
     
-    # process HCAL ?
+    # perform clustering in HCAL ?
     untracked bool   process_Hcal       = true
     
-    # process preshower ?
+    # perform clustering in preshower ?
     untracked bool   process_PS         = true
     
     # clustering in ECAL ?
@@ -30,23 +30,26 @@ module particleFlowCluster = PFClusterProducer {
     
     # clustering in preshower ?
     untracked bool   clustering_PS         = true
-    
+
+
+
+
     # all thresholds are in GeV
     
     # cell threshold in ECAL barrel 
-    double thresh_Ecal_Barrel = 0.05
+    double thresh_Ecal_Barrel = 0.08
     
     # seed threshold in ECAL barrel 
     double thresh_Seed_Ecal_Barrel = 0.3	
     
     # cell threshold in ECAL endcap 
-    double thresh_Ecal_Endcap = 0.1
+    double thresh_Ecal_Endcap = 0.15
     
     # seed threshold in ECAL endcap 
     double thresh_Seed_Ecal_Endcap = 0.9	
     
     # cell threshold in preshower
-    double thresh_PS = 0.00001
+    double thresh_PS = 0.000007
     
     # seed threshold in preshower
     double thresh_Seed_PS = 0.0001	
@@ -67,13 +70,13 @@ module particleFlowCluster = PFClusterProducer {
     double depthCor_B_preshower = 4.0
     
     # cell threshold in HCAL barrel 
-    double thresh_Hcal_Barrel = 1.
+    double thresh_Hcal_Barrel = 0.8
     
     # seed threshold in HCAL barrel 
     double thresh_Seed_Hcal_Barrel = 1.4	
     
     # cell threshold in HCAL endcap 
-    double thresh_Hcal_Endcap = 1.
+    double thresh_Hcal_Endcap = 0.8
     
     # seed threshold in HCAL endcap 
     double thresh_Seed_Hcal_Endcap = 1.4	

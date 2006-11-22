@@ -13,6 +13,9 @@ module particleFlowCluster = PFClusterProducer {
     untracked string ecalRecHitsESModuleLabel         = "ecalPreshowerRecHit"
     untracked string ecalRecHitsESProductInstanceName = "EcalRecHitsES"
     
+    untracked string caloTowersModuleLabel         = "towerMakerPF"
+    untracked string caloTowersProductInstanceName = ""
+    
     # perform clustering in ECAL ?
     untracked bool   process_Ecal       = true	
     
@@ -27,6 +30,9 @@ module particleFlowCluster = PFClusterProducer {
     
     # clustering in HCAL ?
     untracked bool   clustering_Hcal       = true
+
+    # clustering in HCAL: use calotowers for navigation ?
+    untracked bool   clustering_Hcal_CaloTowers = false
     
     # clustering in preshower ?
     untracked bool   clustering_PS         = true
@@ -70,13 +76,15 @@ module particleFlowCluster = PFClusterProducer {
     double depthCor_B_preshower = 4.0
     
     # cell threshold in HCAL barrel 
-    double thresh_Hcal_Barrel = 0.8
-    
+    # double thresh_Hcal_Barrel = 0.8
+    double thresh_Hcal_Barrel = 0.
+   
     # seed threshold in HCAL barrel 
     double thresh_Seed_Hcal_Barrel = 1.4	
     
     # cell threshold in HCAL endcap 
-    double thresh_Hcal_Endcap = 0.8
+    # double thresh_Hcal_Endcap = 0.8
+    double thresh_Hcal_Endcap = 0.
     
     # seed threshold in HCAL endcap 
     double thresh_Seed_Hcal_Endcap = 1.4	

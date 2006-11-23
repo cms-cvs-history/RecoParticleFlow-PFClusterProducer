@@ -32,7 +32,7 @@ module particleFlowCluster = PFClusterProducer {
     untracked bool   clustering_Hcal       = true
 
     # clustering in HCAL: use calotowers for navigation ?
-    untracked bool   clustering_Hcal_CaloTowers = false
+    untracked bool   clustering_Hcal_CaloTowers = true
     
     # clustering in preshower ?
     untracked bool   clustering_PS         = true
@@ -76,15 +76,15 @@ module particleFlowCluster = PFClusterProducer {
     double depthCor_B_preshower = 4.0
     
     # cell threshold in HCAL barrel 
-    # double thresh_Hcal_Barrel = 0.8
-    double thresh_Hcal_Barrel = 0.
+    double thresh_Hcal_Barrel = 0.8
+    #double thresh_Hcal_Barrel = 0.
    
     # seed threshold in HCAL barrel 
     double thresh_Seed_Hcal_Barrel = 1.4	
     
     # cell threshold in HCAL endcap 
-    # double thresh_Hcal_Endcap = 0.8
-    double thresh_Hcal_Endcap = 0.
+    double thresh_Hcal_Endcap = 0.8
+    #double thresh_Hcal_Endcap = 0.
     
     # seed threshold in HCAL endcap 
     double thresh_Seed_Hcal_Endcap = 1.4	

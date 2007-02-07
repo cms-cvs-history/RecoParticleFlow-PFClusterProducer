@@ -23,7 +23,7 @@ module particleFlowCluster = PFClusterProducer {
     untracked bool   process_Hcal       = true
     
     # perform clustering in preshower ?
-    untracked bool   process_PS         = false
+    untracked bool   process_PS         = true
     
     # clustering in ECAL ?
     untracked bool   clustering_Ecal    = true
@@ -36,7 +36,6 @@ module particleFlowCluster = PFClusterProducer {
     
     # clustering in preshower ?
     untracked bool   clustering_PS      = true
-
 
 
 
@@ -55,16 +54,16 @@ module particleFlowCluster = PFClusterProducer {
     double thresh_Seed_Ecal_Endcap = 0.8	
     
     # n neighbours in ECAL 
-    int32      nNeighbours_Ecal = 8
+    int32  nNeighbours_Ecal = 8
     
     # n crystals for position calculation in ECAL
-    int32    posCalcNCrystal_Ecal = 9
+    int32  posCalcNCrystal_Ecal = 9
     
     # sigma of the shower in ECAL 
-    double   showerSigma_Ecal = 5
+    double showerSigma_Ecal = 5
     
     # p1 for position calculation in ECAL 
-    double   posCalcP1_Ecal = -1
+    double posCalcP1_Ecal = -1
 
         
 
@@ -85,16 +84,16 @@ module particleFlowCluster = PFClusterProducer {
 
 
     # n neighbours in HCAL 
-    int32      nNeighbours_Hcal = 4
+    int32  nNeighbours_Hcal = 4
     
     # p1 for position calculation in HCAL 
-    double   posCalcP1_Hcal = 1.0
+    double posCalcP1_Hcal = 1.0
 
     # n crystals for position calculation in HCAL
-    int32      posCalcNCrystal_Hcal = 5
+    int32  posCalcNCrystal_Hcal = 5
     
     # sigma of the shower in HCAL     
-    double   showerSigma_Hcal = 10
+    double showerSigma_Hcal = 10
 
 
 
@@ -108,16 +107,16 @@ module particleFlowCluster = PFClusterProducer {
     double thresh_Seed_PS = 0.0001	
 
     # n neighbours in PS 
-    int32      nNeighbours_PS = 8
+    int32  nNeighbours_PS = 8
     
     # p1 for position calculation in PS 
-    double   posCalcP1_PS = 0.
+    double posCalcP1_PS = 0.
 
     # n crystals for position calculation in PS
-    int32      posCalcNCrystal_PS = -1
+    int32  posCalcNCrystal_PS = -1
 
     # sigma of the shower in preshower     
-    double   showerSigma_PS = 0.2
+    double showerSigma_PS = 0.2
 
  
     # depth correction for ECAL clusters:

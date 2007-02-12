@@ -1,0 +1,55 @@
+include "Geometry/CMSCommonData/data/cmsIdealGeometryXML.cfi"
+
+# Calo geometry/topology services
+include "Geometry/CaloEventSetup/data/CaloGeometry.cfi"
+
+#include "Geometry/CaloEventSetup/data/CaloTowerConstituents.cfi"
+es_module = CaloTowerConstituentsMapBuilder {
+    untracked string MapFile="Geometry/CaloTopology/data/CaloTowerEEGeometric.map.gz"
+}
+
+include "Geometry/CaloEventSetup/data/CaloTopology.cfi"
+es_module = HcalTopologyIdealEP {}
+
+
+
+module towerMakerPF = CaloTowersCreator {
+    double HBThreshold = 0.     // GeV, Scheme B
+    double HOThreshold = 999999     // GeV, Scheme B
+    double HESThreshold = 0.    // GeV, Scheme B
+    double HEDThreshold = 0.    // GeV, Scheme B
+    double HF1Threshold = 999999    // GeV, ORCA value
+    double HF2Threshold = 999999    // GeV, ORCA value
+    double EBThreshold = 999999    // GeV, ORCA value w/o selective readout
+    double EEThreshold = 999999    // GeV, ORCA value w/o selective readout
+    
+    double EBSumThreshold =-1000 // GeV, Scheme B
+    double EESumThreshold =-1000 // GeV, Scheme B
+    double HcalThreshold = -1000 // GeV, -1000 means cut not used 
+    double EcutTower = -1000     // GeV, -1000 means cut not used
+    double EBWeight = 1.0
+    double EEWeight = 1.0
+    double HBWeight = 1.0
+    double HESWeight = 1.0
+    double HEDWeight = 1.0
+    double HOWeight = 1.0
+    double HF1Weight = 1.0
+    double HF2Weight = 1.0
+    bool UseHO = false
+    InputTag hbheInput = hbhereco
+    InputTag hoInput = horeco
+    InputTag hfInput = hfreco
+    VInputTag ecalInputs = { 
+	ecalRecHit:EcalRecHitsEB, 
+	ecalRecHit:EcalRecHitsEE 
+    }
+    untracked bool AllowMissingInputs = true
+}
+
+module caloTowersPF = CaloTowerCandidateCreator {
+    InputTag src = towerMakerPF
+    double minimumEt = -1
+    double minimumE = -1
+}
+
+sequence caloTowersPFRec = { towerMakerPF, caloTowersPF }

@@ -1,18 +1,3 @@
-include "Geometry/CMSCommonData/data/cmsIdealGeometryXML.cfi"
-
-# Calo geometry/topology services
-include "Geometry/CaloEventSetup/data/CaloGeometry.cfi"
-
-#include "Geometry/CaloEventSetup/data/CaloTowerConstituents.cfi"
-es_module = CaloTowerConstituentsMapBuilder {
-    untracked string MapFile="Geometry/CaloTopology/data/CaloTowerEEGeometric.map.gz"
-}
-
-include "Geometry/CaloEventSetup/data/CaloTopology.cfi"
-es_module = HcalTopologyIdealEP {}
-
-
-
 module towerMakerPF = CaloTowersCreator {
     double HBThreshold = 0.     // GeV, Scheme B
     double HOThreshold = 999999     // GeV, Scheme B
@@ -45,11 +30,3 @@ module towerMakerPF = CaloTowersCreator {
     }
     untracked bool AllowMissingInputs = true
 }
-
-module caloTowersPF = CaloTowerCandidateCreator {
-    InputTag src = towerMakerPF
-    double minimumEt = -1
-    double minimumE = -1
-}
-
-sequence caloTowersPFRec = { towerMakerPF, caloTowersPF }

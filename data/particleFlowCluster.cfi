@@ -37,6 +37,8 @@ module particleFlowCluster = PFClusterProducer {
     # clustering in preshower ?
     untracked bool   clustering_PS      = true
 
+    # verbosity 
+    untracked bool   verbose            = false
 
 
     # all thresholds are in GeV

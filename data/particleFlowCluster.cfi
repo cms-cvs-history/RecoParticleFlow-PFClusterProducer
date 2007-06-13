@@ -13,6 +13,9 @@ module particleFlowCluster = PFClusterProducer {
     untracked string ecalRecHitsESModuleLabel         = "ecalPreshowerRecHit"
     untracked string ecalRecHitsESProductInstanceName = "EcalRecHitsES"
     
+    untracked string hcalRecHitsHBHEModuleLabel         = "hbhereco"
+    untracked string hcalRecHitsHBHEProductInstanceName = ""
+    
     untracked string caloTowersModuleLabel         = "towerMakerPF"
     untracked string caloTowersProductInstanceName = ""
     

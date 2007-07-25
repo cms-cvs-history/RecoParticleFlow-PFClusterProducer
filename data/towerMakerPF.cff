@@ -11,7 +11,7 @@ es_module = CaloTowerConstituentsMapBuilder {
 include "Geometry/CaloEventSetup/data/CaloTopology.cfi"
 es_module = HcalTopologyIdealEP {}
 
-include "RecoParticleFlow/PFClusterProducer/towerMakerPF.cfi"
-include "RecoParticleFlow/PFClusterProducer/caloTowersPF.cfi"
+include "RecoParticleFlow/PFClusterProducer/data/towerMakerPF.cfi"
+include "RecoParticleFlow/PFClusterProducer/data/caloTowersPF.cfi"
 
 sequence caloTowersPFRec = { towerMakerPF, caloTowersPF }

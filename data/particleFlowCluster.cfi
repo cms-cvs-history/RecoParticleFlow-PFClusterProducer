@@ -35,7 +35,7 @@ module particleFlowCluster = PFClusterProducer {
     untracked bool   clustering_Hcal    = true
 
     # clustering in HCAL: use calotowers for navigation ?
-    untracked bool   clustering_Hcal_CaloTowers = false
+    untracked bool   clustering_Hcal_CaloTowers = true
     
     # clustering in preshower ?
     untracked bool   clustering_PS      = true

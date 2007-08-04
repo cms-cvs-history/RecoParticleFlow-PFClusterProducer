@@ -8,7 +8,7 @@ include "Geometry/CaloEventSetup/data/CaloGeometry.cfi"
 #    untracked string MapFile="Geometry/CaloTopology/data/CaloTowerEEGeometric.map.gz"
 #}
 
-#include "Geometry/CaloEventSetup/data/CaloTopology.cfi"
+include "Geometry/CaloEventSetup/data/CaloTopology.cfi"
 #es_module = HcalTopologyIdealEP {}
 
 include "RecoParticleFlow/PFClusterProducer/data/towerMakerPF.cfi"

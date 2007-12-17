@@ -4,21 +4,14 @@ module particleFlowCluster = PFClusterProducer {
     # this is useful for redoing the clustering later
     untracked bool   produce_RecHits  = true
 
-    # untracked string ecalRecHitsEBModuleLabel         = "ecalRecHit"
-    # untracked string ecalRecHitsEBProductInstanceName = "EcalRecHitsEB"
     InputTag  ecalRecHitsEB = ecalRecHit:EcalRecHitsEB
+    InputTag  ecalRecHitsEE = ecalRecHit:EcalRecHitsEE
+    InputTag  ecalRecHitsES = ecalRecHit:EcalRecHitsES
 
-    untracked string ecalRecHitsEEModuleLabel         = "ecalRecHit"
-    untracked string ecalRecHitsEEProductInstanceName = "EcalRecHitsEE"
+    InputTag  hcalRecHitsHBHE = hbhereco
     
-    untracked string ecalRecHitsESModuleLabel         = "ecalPreshowerRecHit"
-    untracked string ecalRecHitsESProductInstanceName = "EcalRecHitsES"
-    
-    untracked string hcalRecHitsHBHEModuleLabel         = "hbhereco"
-    untracked string hcalRecHitsHBHEProductInstanceName = ""
-    
-    untracked string caloTowersModuleLabel         = "towerMakerPF"
-    untracked string caloTowersProductInstanceName = ""
+    InputTag  caloTowers = towerMakerPF
+
     
     # perform clustering in ECAL ?
     untracked bool   process_Ecal       = true	

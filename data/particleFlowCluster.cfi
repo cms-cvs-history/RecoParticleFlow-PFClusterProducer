@@ -4,9 +4,10 @@ module particleFlowCluster = PFClusterProducer {
     # this is useful for redoing the clustering later
     untracked bool   produce_RecHits  = true
 
-    untracked string ecalRecHitsEBModuleLabel         = "ecalRecHit"
-    untracked string ecalRecHitsEBProductInstanceName = "EcalRecHitsEB"
-    
+    # untracked string ecalRecHitsEBModuleLabel         = "ecalRecHit"
+    # untracked string ecalRecHitsEBProductInstanceName = "EcalRecHitsEB"
+    InputTag  ecalRecHitsEB = ecalRecHit:EcalRecHitsEB
+
     untracked string ecalRecHitsEEModuleLabel         = "ecalRecHit"
     untracked string ecalRecHitsEEProductInstanceName = "EcalRecHitsEE"
     

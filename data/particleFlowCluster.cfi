@@ -6,7 +6,7 @@ module particleFlowCluster = PFClusterProducer {
 
     InputTag  ecalRecHitsEB = ecalRecHit:EcalRecHitsEB
     InputTag  ecalRecHitsEE = ecalRecHit:EcalRecHitsEE
-    InputTag  ecalRecHitsES = ecalRecHit:EcalRecHitsES
+    InputTag  ecalRecHitsES = ecalPreshowerRecHit:EcalRecHitsES 
 
     InputTag  hcalRecHitsHBHE = hbhereco
     

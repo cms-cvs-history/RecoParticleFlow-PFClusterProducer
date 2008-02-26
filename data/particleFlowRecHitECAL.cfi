@@ -1,0 +1,8 @@
+module particleFlowRecHitECAL = PFRecHitProducer { 
+    
+    InputTag  ecalRecHitsEB = ecalRecHit:EcalRecHitsEB
+    InputTag  ecalRecHitsEE = ecalRecHit:EcalRecHitsEE
+
+    # verbosity 
+    untracked bool   verbose            = false    
+}

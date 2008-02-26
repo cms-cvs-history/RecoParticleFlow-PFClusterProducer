@@ -1,1 +1,29 @@
-include "RecoParticleFlow/PFClusterProducer/data/particleFlowCluster.cfi"
+include "RecoParticleFlow/PFClusterProducer/data/particleFlowRecHitECAL.cfi"
+include "RecoParticleFlow/PFClusterProducer/data/particleFlowRecHitHCAL.cfi"
+include "RecoParticleFlow/PFClusterProducer/data/particleFlowRecHitPS.cfi"
+
+include "RecoParticleFlow/PFClusterProducer/data/particleFlowClusterECAL.cfi"
+include "RecoParticleFlow/PFClusterProducer/data/particleFlowClusterHCAL.cfi"
+include "RecoParticleFlow/PFClusterProducer/data/particleFlowClusterPS.cfi"
+
+
+sequence pfClusteringECAL = {
+    particleFlowRecHitECAL,
+    particleFlowClusterECAL
+}
+
+sequence pfClusteringHCAL = {
+    particleFlowRecHitHCAL,
+    particleFlowClusterHCAL
+}
+
+sequence pfClusteringPS = {
+    particleFlowRecHitPS,
+    particleFlowClusterPS
+}
+
+sequence particleFlowCluster = {
+    pfClusteringECAL,
+    pfClusteringHCAL,
+    pfClusteringPS
+}

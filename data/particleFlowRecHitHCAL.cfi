@@ -1,0 +1,9 @@
+module particleFlowRecHitHCAL = PFRecHitProducer { 
+    
+    InputTag  hcalRecHitsHBHE = ""
+    
+    InputTag  caloTowers = towerMakerPF
+
+    # verbosity 
+    untracked bool   verbose            = false    
+}

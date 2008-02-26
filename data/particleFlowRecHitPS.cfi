@@ -1,4 +1,4 @@
-module particleFlowRecHitPS = PFRecHitProducer { 
+module particleFlowRecHitPS = PFRecHitProducerPS { 
     
     InputTag  ecalRecHitsES = ecalPreshowerRecHit:EcalRecHitsES 
 

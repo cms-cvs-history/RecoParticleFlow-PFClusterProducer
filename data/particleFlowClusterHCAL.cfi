@@ -2,32 +2,35 @@ module particleFlowClusterHCAL = PFClusterProducer {
 
     InputTag  PFRecHits = particleFlowRecHitHCAL
     
+    # verbosity 
+    untracked bool   verbose            = false
+
     # all thresholds are in GeV
 
     # cell threshold in HCAL barrel 
-    double thresh_Hcal_Barrel = 0.8
+    double thresh_Barrel = 0.8
    
     # seed threshold in HCAL barrel 
-    double thresh_Seed_Hcal_Barrel = 1.4	
+    double thresh_Seed_Barrel = 1.4	
     
     # cell threshold in HCAL endcap 
-    double thresh_Hcal_Endcap = 0.8
+    double thresh_Endcap = 0.8
     
     # seed threshold in HCAL endcap 
-    double thresh_Seed_Hcal_Endcap = 1.4	
+    double thresh_Seed_Endcap = 1.4	
 
 
     # n neighbours in HCAL 
-    int32  nNeighbours_Hcal = 4
+    int32  nNeighbours = 4
     
     # p1 for position calculation in HCAL 
-    double posCalcP1_Hcal = 1.0
+    double posCalcP1 = 1.0
 
     # n crystals for position calculation in HCAL
-    int32  posCalcNCrystal_Hcal = 5
+    int32  posCalcNCrystal = 5
     
     # sigma of the shower in HCAL     
-    double showerSigma_Hcal = 10
+    double showerSigma = 10
 
 
 

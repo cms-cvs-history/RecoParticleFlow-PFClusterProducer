@@ -1,4 +1,4 @@
-module particleFlowRecHitHCAL = PFRecHitProducer { 
+module particleFlowRecHitHCAL = PFRecHitProducerHCAL { 
     
     InputTag  hcalRecHitsHBHE = ""
     

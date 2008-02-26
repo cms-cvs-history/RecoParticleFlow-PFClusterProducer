@@ -8,22 +8,28 @@ module particleFlowClusterPS = PFClusterProducer {
     # all thresholds are in GeV
 
     # cell threshold in preshower
-    double thresh_PS = 0.000007
+    double thresh_Barrel = 0.000007
     
     # seed threshold in preshower
-    double thresh_Seed_PS = 0.0005	
+    double thresh_Seed_Barrel = 0.0005	
+
+    # for the preshower, endcap values are not used 
+    double thresh_Endcap = 0.000007
+    
+    # for the preshower, endcap values are not used
+    double thresh_Seed_Endcap = 0.0005	
 
     # n neighbours in PS 
-    int32  nNeighbours_PS = 8
+    int32  nNeighbours = 8
     
     # p1 for position calculation in PS 
-    double posCalcP1_PS = 0.
+    double posCalcP1 = 0.
 
     # n crystals for position calculation in PS
-    int32  posCalcNCrystal_PS = -1
+    int32  posCalcNCrystal = -1
 
     # sigma of the shower in preshower     
-    double showerSigma_PS = 0.2
+    double showerSigma = 0.2
 
  
     # depth correction for ECAL clusters:

@@ -4,6 +4,12 @@ module particleFlowRecHitHCAL = PFRecHitProducerHCAL {
     
     InputTag  caloTowers = towerMakerPF
 
+    # cell threshold in barrel 
+    double thresh_Barrel = 0.8
+
+    # cell threshold in endcap 
+    double thresh_Endcap = 0.8
+
     # verbosity 
     untracked bool   verbose            = false    
 }

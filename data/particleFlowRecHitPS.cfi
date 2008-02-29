@@ -2,6 +2,12 @@ module particleFlowRecHitPS = PFRecHitProducerPS {
     
     InputTag  ecalRecHitsES = ecalPreshowerRecHit:EcalRecHitsES 
 
+    # cell threshold in barrel 
+    double thresh_Barrel = 0.000007
+
+    # cell threshold in endcap 
+    double thresh_Endcap = 0.000007
+
     # verbosity 
     untracked bool   verbose            = false    
 }

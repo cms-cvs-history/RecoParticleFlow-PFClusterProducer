@@ -11,5 +11,7 @@ module particleFlowRecHitECAL = PFRecHitProducerECAL {
 
     # verbosity 
     untracked bool   verbose            = false    
-
+    
+    # is navigation able to cross the barrel-endcap border?
+    bool   crossBarrelEndcapBorder = false
 }

@@ -1,17 +1,22 @@
 
 module towerMakerPF = towerMaker from "RecoJets/JetProducers/data/CaloTowerSchemeB.cfi"
 
-replace towerMakerPF.HBThreshold = 0.
+# replace towerMakerPF.HBThreshold = 0.
 replace towerMakerPF.HOThreshold = 999999
+
 replace towerMakerPF.HESThreshold = 0.
 replace towerMakerPF.HEDThreshold = 0.
-replace towerMakerPF.HF1Threshold = 0.
-replace towerMakerPF.HF2Threshold = 0.
+
+#replace towerMakerPF.HF1Threshold = 0
+#replace towerMakerPF.HF2Threshold = 0
+
 replace towerMakerPF.EBThreshold = 999999 
 replace towerMakerPF.EEThreshold = 999999 
-replace towerMakerPF.EBSumThreshold =-1000 // GeV, -1000 means cut not used 
-replace towerMakerPF.EESumThreshold =-1000 // GeV, -1000 means cut not used 
-replace towerMakerPF.HcalThreshold = -1000 // GeV, -1000 means cut not used 
-replace towerMakerPF.EcutTower = -1000     // GeV, -1000 means cut not used
+
+#replace towerMakerPF.EBSumThreshold =-1000 // GeV, -1000 means cut not used 
+#replace towerMakerPF.EESumThreshold =-1000 // GeV, -1000 means cut not used 
+#replace towerMakerPF.HcalThreshold = -1000 // GeV, -1000 means cut not used 
+# replace towerMakerPF.EcutTower = -1000     // GeV, -1000 means cut not used
+
 replace towerMakerPF.UseHO = false
 replace towerMakerPF.AllowMissingInputs = true

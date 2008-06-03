@@ -14,10 +14,10 @@ module particleFlowClusterHCAL = PFClusterProducer {
     double thresh_Seed_Barrel = 1.4	
     
     # cell threshold in HCAL endcap 
-    double thresh_Endcap = 0.8
+    double thresh_Endcap = 0.
     
     # seed threshold in HCAL endcap 
-    double thresh_Seed_Endcap = 1.4	
+    double thresh_Seed_Endcap = 0	
 
 
     # n neighbours in HCAL 

@@ -11,7 +11,7 @@ module particleFlowRecHitHCAL = PFRecHitProducerHCAL {
     double thresh_Endcap = 0.8
 
     # cell threshold in HF
-    double thresh_HF = 2
+    double thresh_HF = 0
 
     # verbosity 
     untracked bool   verbose            = false    

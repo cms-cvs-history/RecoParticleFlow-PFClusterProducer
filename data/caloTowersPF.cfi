@@ -1,5 +1,0 @@
-module caloTowersPF = CaloTowerCandidateCreator {
-    InputTag src = towerMakerPF
-    double minimumEt = -1
-    double minimumE = -1
-}

@@ -6,11 +6,11 @@ particleFlowRecHitHCAL = cms.EDFilter("PFRecHitProducerHCAL",
     caloTowers = cms.InputTag("towerMakerPF"),
     hcalRecHitsHBHE = cms.InputTag(""),
     # cell threshold in barrel 
-    thresh_Barrel = cms.double(0.8),
+    thresh_Barrel = cms.double(0.4),
     # cell threshold in HF
-    thresh_HF = cms.double(0.0),
+    thresh_HF = cms.double(0.4),
     # cell threshold in endcap 
-    thresh_Endcap = cms.double(0.8)
+    thresh_Endcap = cms.double(0.4)
 )
 
 

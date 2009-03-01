@@ -1,5 +1,0 @@
-<use name=DataFormats/ParticleFlowReco>
-<use name=FWCore/Framework>
-<library file=PFClusterAnalyzer.cc>
-<flags EDM_PLUGIN=1>
-</library>

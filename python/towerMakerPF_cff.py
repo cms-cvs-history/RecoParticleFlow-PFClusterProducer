@@ -9,5 +9,9 @@ from Geometry.CaloEventSetup.CaloTopology_cfi import *
 #es_module = HcalTopologyIdealEP {}
 from RecoParticleFlow.PFClusterProducer.towerMakerPF_cfi import *
 from RecoParticleFlow.PFClusterProducer.caloTowersPF_cfi import *
+towerMakerPF.HBThreshold = 0.4
+towerMakerPF.HESThreshold = 0.4
+towerMakerPF.HEDThreshold = 0.4
+
 caloTowersPFRec = cms.Sequence(towerMakerPF*caloTowersPF)
 

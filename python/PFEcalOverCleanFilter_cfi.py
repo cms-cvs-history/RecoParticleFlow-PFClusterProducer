@@ -8,6 +8,6 @@ pfEcalOverCleanFilter = cms.EDFilter("PFEcalOverCleanFilter",
     # Timing cut for the cleaned hit
     TimingCut = cms.double(0.0),
     # debug level
-    verbose = cms.bool(True)
+    verbose = cms.bool(False)
                            
 )

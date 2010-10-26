@@ -154,14 +154,22 @@ PFRecHitProducerECAL::createRecHits(vector<reco::PFRecHit>& rechits,
           
       // Just clean ECAL Barrel rechits out of time by more than 5 sigma.
       if ( timingCleaning_ && energy > threshCleaning_ && flag == EcalRecHit::kOutOfTime ) { 
-	reco::PFRecHit *pfrhCleaned = createEcalRecHit(detid, energy,  
-						       PFLayer::ECAL_BARREL,
-						       ecalBarrelGeometry);
-	if( !pfrhCleaned ) continue; // problem with this rechit. skip it      
-	pfrhCleaned->setRescale(time);
-	rechitsCleaned.push_back( *pfrhCleaned );
-	delete pfrhCleaned;
-	continue;
+
+	/********************************************************
+	 * This boolean is only used as a patch against ECAL
+	 * overcleaning in 36X, in a reco-to-reco process
+	 ********************************************************/
+	bool ecalOverClean = energy > 130. && time > 0.;
+	if ( !ecalOverClean ) { 
+	  reco::PFRecHit *pfrhCleaned = createEcalRecHit(detid, energy,  
+							 PFLayer::ECAL_BARREL,
+							 ecalBarrelGeometry);
+	  if( !pfrhCleaned ) continue; // problem with this rechit. skip it      
+	  pfrhCleaned->setRescale(time);
+	  rechitsCleaned.push_back( *pfrhCleaned );
+	  delete pfrhCleaned;
+	  continue;
+	}
       } 
 
       

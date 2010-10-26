@@ -106,7 +106,7 @@ process.load("Configuration.EventContent.EventContent_cff")
 process.rereco = cms.OutputModule("PoolOutputModule",
     process.RECOSIMEventContent,
     fileName = cms.untracked.string('reco.root'),
-    SelectEvents = cms.untracked.PSet(SelectEvents = cms.vstring('p'))
+    SelectEvents = cms.untracked.PSet(SelectEvents = cms.vstring('p1'))
 )
 
 # Write out only filtered and re-rereco'ed events

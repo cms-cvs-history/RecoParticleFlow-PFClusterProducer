@@ -1,32 +1,27 @@
 import FWCore.ParameterSet.Config as cms
 
-
-# runs particle flow clustering.
+# runs only clustering.
+# PFRecHits should be in the input file
 
 process = cms.Process("PFC")
 
-process.load("Configuration.StandardSequences.Geometry_cff")
-process.load('Configuration/StandardSequences/FrontierConditions_GlobalTag_cff')
-from Configuration.AlCa.autoCond import autoCond
-process.GlobalTag.globaltag = autoCond['startup']
-
-
 process.source = cms.Source("PoolSource", 
-                            fileNames = cms.untracked.vstring("/store/relval/CMSSW_4_3_0_pre6/RelValTTbar/GEN-SIM-RECO/START43_V3-v1/0085/BC545C44-9F8B-E011-9371-0030486791AA.root") )
+                            fileNames = cms.untracked.vstring("file:pfrechits.root") )
 
 process.maxEvents = cms.untracked.PSet(
-    input = cms.untracked.int32(200)
+    input = cms.untracked.int32(2000)
 )
-
-process.load("RecoLocalCalo.HcalRecAlgos.hcalRecAlgoESProd_cfi")
-process.load("RecoLocalCalo.EcalRecAlgos.EcalSeverityLevelESProducer_cfi")
 
 process.load("RecoParticleFlow.PFClusterProducer.particleFlowCluster_cff")
 
-# process.particleFlowClusterECAL.verbose = True
+process.particleFlowClusterECAL.verbose = True
 
-process.p = cms.Path(
-    process.particleFlowCluster
+process.p1 = cms.Path(
+#    process.particleFlowClusterECAL+
+#    process.particleFlowClusterHCAL+
+    process.particleFlowClusterHFEM
+#    process.particleFlowClusterHFHAD
+#    process.particleFlowClusterPS 
     )
 
 
@@ -34,11 +29,8 @@ process.p = cms.Path(
 process.load("Configuration.EventContent.EventContent_cff")
 process.reco = cms.OutputModule("PoolOutputModule",
     process.RECOSIMEventContent,
-    fileName = cms.untracked.string('clustering.root')
+    fileName = cms.untracked.string('clustering_reco.root')
 )
-
-# process.reco.outputCommands.append('keep recoPFRecHits_*_*_*')
-process.reco.outputCommands.append('keep recoPFClusters_*_*_*')
 
 process.outpath = cms.EndPath( process.reco )
 

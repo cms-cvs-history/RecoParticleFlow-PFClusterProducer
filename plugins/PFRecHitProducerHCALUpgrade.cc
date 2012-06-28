@@ -216,6 +216,7 @@ void PFRecHitProducerHCALUpgrade::createRecHits(vector<reco::PFRecHit>& rechits,
         const HBHERecHit& hit = (*hbheHandle)[irechit];
 
         double hitenergy = hit.energy();
+	double rescaleFactor = hit.time();
 
         reco::PFRecHit* pfrh = 0;
         reco::PFRecHit* pfrhCleaned = 0;
@@ -230,6 +231,7 @@ void PFRecHitProducerHCALUpgrade::createRecHits(vector<reco::PFRecHit>& rechits,
                                      hitenergy,
                                      PFLayer::HCAL_BARREL1,
                                      hcalBarrelGeometry );
+	    pfrh->setRescale(rescaleFactor);
           }
           break;
         case HcalEndcap:
@@ -241,6 +243,7 @@ void PFRecHitProducerHCALUpgrade::createRecHits(vector<reco::PFRecHit>& rechits,
                                      hitenergy,
                                      PFLayer::HCAL_ENDCAP,
                                      hcalEndcapGeometry );
+	    pfrh->setRescale(rescaleFactor);
           }
           break;
         default:
@@ -352,7 +355,7 @@ void PFRecHitProducerHCALUpgrade::createRecHits(vector<reco::PFRecHit>& rechits,
 	}
 
 	// In case of dead ECAL channel, rescale the HCAL energy...
-	double rescaleFactor = alive > 0. ? 1. + ECAL_Compensation_*dead/alive : 1.;
+//	double rescaleFactor = alive > 0. ? 1. + ECAL_Compensation_*dead/alive : 1.;
 	  
 //	reco::PFRecHit* pfrh = 0;
 //	reco::PFRecHit* pfrhCleaned = 0;

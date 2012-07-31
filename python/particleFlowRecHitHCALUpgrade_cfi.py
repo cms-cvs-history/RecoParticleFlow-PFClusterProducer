@@ -4,7 +4,8 @@ particleFlowRecHitHCALUpgrade = cms.EDProducer("PFRecHitProducerHCALUpgrade",
     # verbosity 
     verbose = cms.untracked.bool(False),
     caloTowers = cms.InputTag("towerMakerPF"),
-    hcalRecHitsHBHE = cms.InputTag("hbhereco"),
+    #hcalRecHitsHBHE = cms.InputTag("hbhereco"),
+    hcalRecHitsHBHE = cms.InputTag("hcalupgradereco"),
     hcalRecHitsHF = cms.InputTag("hfreco"),
     # cell threshold in barrel 
     thresh_Barrel = cms.double(0.1),

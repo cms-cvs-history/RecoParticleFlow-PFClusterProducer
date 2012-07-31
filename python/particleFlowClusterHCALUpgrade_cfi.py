@@ -23,7 +23,7 @@ particleFlowClusterHCALUpgrade = cms.EDProducer("PFClusterProducer",
     thresh_Seed_Endcap = cms.double(1.1),
     thresh_Pt_Seed_Endcap = cms.double(0.0),
     # cell threshold in HCAL endcap
-    thresh_Endcap = cms.double(0.1),    
+    thresh_Endcap = cms.double(0.8),    
     thresh_Pt_Endcap = cms.double(0.0),
     # cleaning threshold and minimum S4/S1 fraction in HCAL barrel
     #thresh_Clean_Endcap = cms.double(50.0),
@@ -34,7 +34,7 @@ particleFlowClusterHCALUpgrade = cms.EDProducer("PFClusterProducer",
     minS6S2_DoubleSpike_Endcap = cms.double(-1.),
     #----HCAL options
     # n neighbours in HCAL 
-    nNeighbours = cms.int32(8),
+    nNeighbours = cms.int32(4),
     # sigma of the shower in HCAL     
     showerSigma = cms.double(10.0),
     # use cells with common corner to build topo-clusters

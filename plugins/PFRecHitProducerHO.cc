@@ -32,10 +32,10 @@
 #include "RecoCaloTools/Navigation/interface/CaloNavigator.h"
 
 // Necessary includes for identify severity of flagged problems in HO rechits
-#include "RecoLocalCalo/HcalRecAlgos/interface/HcalCaloFlagLabels.h"
-#include "RecoLocalCalo/HcalRecAlgos/interface/HcalSeverityLevelComputer.h"
-#include "RecoLocalCalo/HcalRecAlgos/interface/HcalSeverityLevelComputerRcd.h"
-#include "CondFormats/HcalObjects/interface/HcalChannelQuality.h"
+//#include "RecoLocalCalo/HcalRecAlgos/interface/HcalCaloFlagLabels.h"
+//#include "RecoLocalCalo/HcalRecAlgos/interface/HcalSeverityLevelComputer.h"
+//#include "RecoLocalCalo/HcalRecAlgos/interface/HcalSeverityLevelComputerRcd.h"
+//#include "CondFormats/HcalObjects/interface/HcalChannelQuality.h"
 
 using namespace std;
 using namespace edm;
@@ -87,9 +87,9 @@ PFRecHitProducerHO::createRecHits(vector<reco::PFRecHit>& rechits,
 		   hcalBarrelTopology);
 
   // Get Hcal Severity Level Computer, so that the severity of each rechit flag/status may be determined
-  edm::ESHandle<HcalSeverityLevelComputer> hcalSevLvlComputerHndl;
-  iSetup.get<HcalSeverityLevelComputerRcd>().get(hcalSevLvlComputerHndl);
-  const HcalSeverityLevelComputer* hcalSevLvlComputer = hcalSevLvlComputerHndl.product();
+//  edm::ESHandle<HcalSeverityLevelComputer> hcalSevLvlComputerHndl;
+//  iSetup.get<HcalSeverityLevelComputerRcd>().get(hcalSevLvlComputerHndl);
+//  const HcalSeverityLevelComputer* hcalSevLvlComputer = hcalSevLvlComputerHndl.product();
 
   
   // get the HO rechits
@@ -131,17 +131,17 @@ PFRecHitProducerHO::createRecHits(vector<reco::PFRecHit>& rechits,
       
 
       // Get Channel Quality information for the given detID
-      const HcalChannelStatus* theStatus = theHcalChStatus->getValues(detid);
-      unsigned theStatusValue = theStatus->getValue();
+//      const HcalChannelStatus* theStatus = theHcalChStatus->getValues(detid);
+//      unsigned theStatusValue = theStatus->getValue();
       // Now get severity of problems for the given detID, based on the rechit flag word and the channel quality status value
-      int hitSeverity=hcalSevLvlComputer->getSeverityLevel(detid, erh.flags(),theStatusValue);
+//      int hitSeverity=hcalSevLvlComputer->getSeverityLevel(detid, erh.flags(),theStatusValue);
     
       // Skip hits whose problems are more severe than max accept level.  In the future, allow for cleaning of such hits?
       // Note:  As of April 2012, by default, all HO hits in rings +/-1, +/-2 should be identified as either "remove from calotowers" or "remove from rechit collections" in the channel quality database, and thus should be rejected by this conditional statement.
-      if (hitSeverity>HOMaxAllowedSev_) 
+//      if (hitSeverity>HOMaxAllowedSev_) 
 	{
 	  //std::cout <<"Rejecting HO hit HO("<<hoeta<<", "<<detid.iphi()<<", "<<detid.depth()<<std::endl;
-	  continue;
+//	  continue;
 	}  
 
 

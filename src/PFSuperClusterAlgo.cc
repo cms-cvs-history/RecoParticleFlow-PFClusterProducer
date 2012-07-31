@@ -528,6 +528,14 @@ void PFSuperClusterAlgo::doClusteringWorker( const reco::PFClusterCollection& cl
   std::vector< bool > lmerge(clusters.size());
   std::vector< bool > lmergeHO(clustersHO.size());
 
+  double hcaleta1=0.0;
+  double hcalphi1=0.0;
+  double hcaleta2=0.0;
+  double hcalphi2=0.0;
+  double dR = 0.0;
+  double dEta = 0.0;
+  double dPhi = 0.0;
+
 //    cout << " setting up cluster merging indices "<<endl;
     for (unsigned short ic1=0; ic1<clusters.size();++ic1) {
      lmerge[ic1]=false;
@@ -537,8 +545,8 @@ void PFSuperClusterAlgo::doClusteringWorker( const reco::PFClusterCollection& cl
     }
     for (unsigned short ic1=0; ic1<clusters.size();++ic1) {
       if( clusterdepth[ic1]==1 ){
-        double hcaleta1  = calculatePosition(clusters[ic1]).first;
-        double hcalphi1  = calculatePosition(clusters[ic1]).second;
+        hcaleta1  = calculatePosition(clusters[ic1]).first;
+        hcalphi1  = calculatePosition(clusters[ic1]).second;
         if(clusters[ic1].layer()==PFLayer::HCAL_BARREL1) {
           etaPhiHits1HB->Fill(hcaleta1, hcalphi1, clusters[ic1].hitsAndFractions().size());
           const std::vector< reco::PFRecHitFraction >& pfhitsandfracs = clusters[ic1].recHitFractions();
@@ -558,11 +566,11 @@ void PFSuperClusterAlgo::doClusteringWorker( const reco::PFClusterCollection& cl
           }
         }
         for (unsigned short ic2=0; ic2<clusters.size();++ic2) {
-          double hcaleta2  = calculatePosition(clusters[ic2]).first;
-          double hcalphi2  = calculatePosition(clusters[ic2]).second;
-          double dR = deltaR( hcaleta1, hcalphi1, hcaleta2, hcalphi2 );
-          double dEta = abs(hcaleta1 - hcaleta2);
-          double dPhi = abs(deltaPhi(hcalphi1, hcalphi2));
+          hcaleta2  = calculatePosition(clusters[ic2]).first;
+          hcalphi2  = calculatePosition(clusters[ic2]).second;
+          dR = deltaR( hcaleta1, hcalphi1, hcaleta2, hcalphi2 );
+          dEta = abs(hcaleta1 - hcaleta2);
+          dPhi = abs(deltaPhi(hcalphi1, hcalphi2));
           double w1 = calculateWidths(clusters[ic1]).first;
           if (w1 == 0) w1 = 0.087;
           double w2 = calculateWidths(clusters[ic2]).first;
@@ -616,8 +624,8 @@ void PFSuperClusterAlgo::doClusteringWorker( const reco::PFClusterCollection& cl
           }
         }
       } else if( clusterdepth[ic1]==2 ){
-        double hcaleta1  = calculatePosition(clusters[ic1]).first;
-        double hcalphi1  = calculatePosition(clusters[ic1]).second;
+        hcaleta1  = calculatePosition(clusters[ic1]).first;
+        hcalphi1  = calculatePosition(clusters[ic1]).second;
         if(clusters[ic1].layer()==PFLayer::HCAL_BARREL1) {
           etaPhiHits2HB->Fill(hcaleta1, hcalphi1, clusters[ic1].hitsAndFractions().size());
           const std::vector< reco::PFRecHitFraction >& pfhitsandfracs = clusters[ic1].recHitFractions();
@@ -637,11 +645,11 @@ void PFSuperClusterAlgo::doClusteringWorker( const reco::PFClusterCollection& cl
           }
         }
         for (unsigned short ic2=0; ic2<clusters.size();++ic2) {
-          double hcaleta2  = calculatePosition(clusters[ic2]).first;
-          double hcalphi2  = calculatePosition(clusters[ic2]).second;
-          double dEta = abs(hcaleta1 - hcaleta2);
-          double dPhi = abs(deltaPhi(hcalphi1, hcalphi2));
-          double dR = deltaR( hcaleta1, hcalphi1, hcaleta2, hcalphi2 );
+          hcaleta2  = calculatePosition(clusters[ic2]).first;
+          hcalphi2  = calculatePosition(clusters[ic2]).second;
+          dEta = abs(hcaleta1 - hcaleta2);
+          dPhi = abs(deltaPhi(hcalphi1, hcalphi2));
+          dR = deltaR( hcaleta1, hcalphi1, hcaleta2, hcalphi2 );
           double w1 = calculateWidths(clusters[ic1]).first;
           if (w1 == 0) w1 = 0.087;
           double w2 = calculateWidths(clusters[ic2]).first;
@@ -688,8 +696,8 @@ void PFSuperClusterAlgo::doClusteringWorker( const reco::PFClusterCollection& cl
           }
         }
       } else if( clusterdepth[ic1]==3 ){
-        double hcaleta1 = calculatePosition(clusters[ic1]).first;
-        double hcalphi1  = calculatePosition(clusters[ic1]).second;
+        hcaleta1 = calculatePosition(clusters[ic1]).first;
+        hcalphi1  = calculatePosition(clusters[ic1]).second;
         if(clusters[ic1].layer()==PFLayer::HCAL_BARREL1) {
           etaPhiHits3HB->Fill(hcaleta1, hcalphi1, clusters[ic1].hitsAndFractions().size());
           const std::vector< reco::PFRecHitFraction >& pfhitsandfracs = clusters[ic1].recHitFractions();
@@ -709,11 +717,11 @@ void PFSuperClusterAlgo::doClusteringWorker( const reco::PFClusterCollection& cl
           }
         }
         for (unsigned short ic2=0; ic2<clusters.size();++ic2) {
-          double hcaleta2  = calculatePosition(clusters[ic2]).first;
-          double hcalphi2  = calculatePosition(clusters[ic2]).second;
-          double dEta = abs(hcaleta1 - hcaleta2);
-          double dPhi = abs(deltaPhi(hcalphi1, hcalphi2));
-          double dR = deltaR( hcaleta1, hcalphi1, hcaleta2, hcalphi2 );
+          hcaleta2  = calculatePosition(clusters[ic2]).first;
+          hcalphi2  = calculatePosition(clusters[ic2]).second;
+          dEta = abs(hcaleta1 - hcaleta2);
+          dPhi = abs(deltaPhi(hcalphi1, hcalphi2));
+          dR = deltaR( hcaleta1, hcalphi1, hcaleta2, hcalphi2 );
           double w1 = calculateWidths(clusters[ic1]).first;
           if (w1 == 0) w1 = 0.087;
           double w2 = calculateWidths(clusters[ic2]).first;
@@ -753,11 +761,11 @@ void PFSuperClusterAlgo::doClusteringWorker( const reco::PFClusterCollection& cl
           }
         }
         for (unsigned short ic2=0; ic2<clustersHO.size();++ic2) {
-          double hcaleta2  = calculatePosition(clustersHO[ic2]).first;
-          double hcalphi2  = calculatePosition(clustersHO[ic2]).second;
-          double dEta = abs(hcaleta1 - hcaleta2);
-          double dPhi = abs(deltaPhi(hcalphi1, hcalphi2));
-          double dR = deltaR( hcaleta1, hcalphi1, hcaleta2, hcalphi2 );
+          hcaleta2  = calculatePosition(clustersHO[ic2]).first;
+          hcalphi2  = calculatePosition(clustersHO[ic2]).second;
+          dEta = abs(hcaleta1 - hcaleta2);
+          dPhi = abs(deltaPhi(hcalphi1, hcalphi2));
+          dR = deltaR( hcaleta1, hcalphi1, hcaleta2, hcalphi2 );
           double w1 = calculateWidths(clusters[ic1]).first;
           if (w1 == 0) w1 = 0.087;
           double w2 = calculateWidths(clustersHO[ic2]).first;
@@ -785,8 +793,8 @@ void PFSuperClusterAlgo::doClusteringWorker( const reco::PFClusterCollection& cl
           }
         }
       } else if( clusterdepth[ic1]==4 ){
-        double hcaleta1  = calculatePosition(clusters[ic1]).first;
-        double hcalphi1  = calculatePosition(clusters[ic1]).second;
+        hcaleta1  = calculatePosition(clusters[ic1]).first;
+        hcalphi1  = calculatePosition(clusters[ic1]).second;
         if(clusters[ic1].layer()==PFLayer::HCAL_ENDCAP) {
           etaPhiHits4HE->Fill(hcaleta1, hcalphi1, clusters[ic1].hitsAndFractions().size());
           const std::vector< reco::PFRecHitFraction >& pfhitsandfracs = clusters[ic1].recHitFractions();
@@ -797,11 +805,11 @@ void PFSuperClusterAlgo::doClusteringWorker( const reco::PFClusterCollection& cl
           }
         }
         for (unsigned short ic2=0; ic2<clusters.size();++ic2) {
-          double hcaleta2  = calculatePosition(clusters[ic2]).first;
-          double hcalphi2  = calculatePosition(clusters[ic2]).second;
-          double dEta = abs(hcaleta1 - hcaleta2);
-          double dPhi = abs(deltaPhi(hcalphi1, hcalphi2));
-          double dR = deltaR( hcaleta1, hcalphi1, hcaleta2, hcalphi2 );
+          hcaleta2  = calculatePosition(clusters[ic2]).first;
+          hcalphi2  = calculatePosition(clusters[ic2]).second;
+          dEta = abs(hcaleta1 - hcaleta2);
+          dPhi = abs(deltaPhi(hcalphi1, hcalphi2));
+          dR = deltaR( hcaleta1, hcalphi1, hcaleta2, hcalphi2 );
           double w1 = calculateWidths(clusters[ic1]).first;
           if (w1 < 0.087) w1 = 0.087;
           double w2 = calculateWidths(clusters[ic2]).first;
@@ -829,8 +837,8 @@ void PFSuperClusterAlgo::doClusteringWorker( const reco::PFClusterCollection& cl
           }
         }
       } else if( clusterdepth[ic1]==5 ){
-        double hcaleta1  = calculatePosition(clusters[ic1]).first;
-        double hcalphi1  = calculatePosition(clusters[ic1]).second;
+        hcaleta1  = calculatePosition(clusters[ic1]).first;
+        hcalphi1  = calculatePosition(clusters[ic1]).second;
         if(clusters[ic1].layer()==PFLayer::HCAL_ENDCAP) {
           etaPhiHits5HE->Fill(hcaleta1, hcalphi1, clusters[ic1].hitsAndFractions().size());
           const std::vector< reco::PFRecHitFraction >& pfhitsandfracs = clusters[ic1].recHitFractions();

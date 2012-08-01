@@ -47,7 +47,7 @@ PFRecHitProducerHO::PFRecHitProducerHO(const edm::ParameterSet& iConfig)
   inputTagHORecHits_ = 
     iConfig.getParameter<InputTag>("recHitsHO");
   
-  HOMaxAllowedSev_ = iConfig.getParameter<int>("HOMaxAllowedSev");
+//  HOMaxAllowedSev_ = iConfig.getParameter<int>("HOMaxAllowedSev");
   neighbourmapcalculated_ = false;
 }
 

@@ -197,7 +197,8 @@ void PFRecHitProducerHCALUpgrade::createRecHits(vector<reco::PFRecHit>& rechits,
       }
       
       // get HBHE rechits
-      edm::Handle<HBHERecHitCollection>  hbheHandle;  
+//      edm::Handle<HBHERecHitCollection>  hbheHandle;  
+      edm::Handle<HcalUpgradeRecHitCollection>  hbheHandle;  
       found = iEvent.getByLabel(inputTagHcalRecHitsHBHE_,
 				hbheHandle);
       
@@ -213,7 +214,8 @@ void PFRecHitProducerHCALUpgrade::createRecHits(vector<reco::PFRecHit>& rechits,
       }
       
       for(unsigned irechit=0; irechit<hbheHandle->size(); irechit++) {
-        const HBHERecHit& hit = (*hbheHandle)[irechit];
+//        const HBHERecHit& hit = (*hbheHandle)[irechit];
+        const HcalUpgradeRecHit& hit = (*hbheHandle)[irechit];
 
         double hitenergy = hit.energy();
 	double hittime = hit.time();
@@ -227,6 +229,7 @@ void PFRecHitProducerHCALUpgrade::createRecHits(vector<reco::PFRecHit>& rechits,
         case HcalBarrel:
           {
             if(hitenergy < thresh_Barrel_ ) continue;
+//            if(hittime>-10 && hittime<15) {
             if(hittime>-35 && hittime<-10) {
               pfrh = createHcalRecHit( detid,
                                        hitenergy,
@@ -241,6 +244,7 @@ void PFRecHitProducerHCALUpgrade::createRecHits(vector<reco::PFRecHit>& rechits,
             if(hitenergy < thresh_Endcap_ ) continue;
             // Apply tower 29 calibration
             if ( HCAL_Calib_ && abs(detid.ieta()) == 29 ) hitenergy *= HCAL_Calib_29;
+//            if(hittime>-10 && hittime<15) {
             if(hittime>-35 && hittime<-10) {
               pfrh = createHcalRecHit( detid,
                                        hitenergy,
@@ -1000,7 +1004,8 @@ void PFRecHitProducerHCALUpgrade::createRecHits(vector<reco::PFRecHit>& rechits,
     
     // HCAL rechits 
     //    vector<edm::Handle<HBHERecHitCollection> > hcalHandles;  
-    edm::Handle<HBHERecHitCollection>  hcalHandle;  
+//    edm::Handle<HBHERecHitCollection>  hcalHandle;  
+    edm::Handle<HcalUpgradeRecHitCollection>  hcalHandle;  
 
     
     bool found = iEvent.getByLabel(inputTagHcalRecHitsHBHE_, 
@@ -1016,9 +1021,11 @@ void PFRecHitProducerHCALUpgrade::createRecHits(vector<reco::PFRecHit>& rechits,
     else {
       assert( hcalHandle.isValid() );
       
-      const edm::Handle<HBHERecHitCollection>& handle = hcalHandle;
+//      const edm::Handle<HBHERecHitCollection>& handle = hcalHandle;
+      const edm::Handle<HcalUpgradeRecHitCollection>& handle = hcalHandle;
       for(unsigned irechit=0; irechit<handle->size(); irechit++) {
-	const HBHERecHit& hit = (*handle)[irechit];
+//	const HBHERecHit& hit = (*handle)[irechit];
+	const HcalUpgradeRecHit& hit = (*handle)[irechit];
 	
 	double energy = hit.energy();
 	

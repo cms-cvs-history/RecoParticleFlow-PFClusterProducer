@@ -216,7 +216,7 @@ void PFRecHitProducerHCALUpgrade::createRecHits(vector<reco::PFRecHit>& rechits,
         const HBHERecHit& hit = (*hbheHandle)[irechit];
 
         double hitenergy = hit.energy();
-	double rescaleFactor = hit.time();
+	double hittime = hit.time();
 
         reco::PFRecHit* pfrh = 0;
         reco::PFRecHit* pfrhCleaned = 0;
@@ -227,11 +227,13 @@ void PFRecHitProducerHCALUpgrade::createRecHits(vector<reco::PFRecHit>& rechits,
         case HcalBarrel:
           {
             if(hitenergy < thresh_Barrel_ ) continue;
-            pfrh = createHcalRecHit( detid,
-                                     hitenergy,
-                                     PFLayer::HCAL_BARREL1,
-                                     hcalBarrelGeometry );
-	    pfrh->setRescale(rescaleFactor);
+            if(hittime>-35 && hittime<-10) {
+              pfrh = createHcalRecHit( detid,
+                                       hitenergy,
+                                       PFLayer::HCAL_BARREL1,
+                                       hcalBarrelGeometry );
+	      pfrh->setRescale(hittime);
+            }
           }
           break;
         case HcalEndcap:
@@ -239,11 +241,13 @@ void PFRecHitProducerHCALUpgrade::createRecHits(vector<reco::PFRecHit>& rechits,
             if(hitenergy < thresh_Endcap_ ) continue;
             // Apply tower 29 calibration
             if ( HCAL_Calib_ && abs(detid.ieta()) == 29 ) hitenergy *= HCAL_Calib_29;
-            pfrh = createHcalRecHit( detid,
-                                     hitenergy,
-                                     PFLayer::HCAL_ENDCAP,
-                                     hcalEndcapGeometry );
-	    pfrh->setRescale(rescaleFactor);
+            if(hittime>-35 && hittime<-10) {
+              pfrh = createHcalRecHit( detid,
+                                       hitenergy,
+                                       PFLayer::HCAL_ENDCAP,
+                                       hcalEndcapGeometry );
+	      pfrh->setRescale(hittime);
+            }
           }
           break;
         default:

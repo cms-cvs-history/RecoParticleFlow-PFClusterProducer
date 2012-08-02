@@ -229,8 +229,15 @@ void PFRecHitProducerHCALUpgrade::createRecHits(vector<reco::PFRecHit>& rechits,
         case HcalBarrel:
           {
             if(hitenergy < thresh_Barrel_ ) continue;
-//            if(hittime>-10 && hittime<15) {
-            if(hittime>-35 && hittime<-10) {
+            if(detid.depth()==1) {
+              hittime -= 48.9580/(2.16078+hitenergy);
+            } else if(detid.depth()==2) {
+              hittime -= 34.2860/(1.23746+hitenergy);
+            } else if(detid.depth()==3) {
+              hittime -= 38.6872/(1.48051+hitenergy);
+            }
+// time window for signal=4
+            if(hittime>-10 && hittime<15) {
               pfrh = createHcalRecHit( detid,
                                        hitenergy,
                                        PFLayer::HCAL_BARREL1,
@@ -244,8 +251,19 @@ void PFRecHitProducerHCALUpgrade::createRecHits(vector<reco::PFRecHit>& rechits,
             if(hitenergy < thresh_Endcap_ ) continue;
             // Apply tower 29 calibration
             if ( HCAL_Calib_ && abs(detid.ieta()) == 29 ) hitenergy *= HCAL_Calib_29;
-//            if(hittime>-10 && hittime<15) {
-            if(hittime>-35 && hittime<-10) {
+            if(detid.depth()==1) {
+              hittime -= 60.8050/(3.07285+hitenergy);
+            } else if(detid.depth()==2) {
+              hittime -= 47.1677/(2.06485+hitenergy);
+            } else if(detid.depth()==3) {
+              hittime -= 37.1941/(1.53790+hitenergy);
+            } else if(detid.depth()==4) {
+              hittime -= 42.9898/(1.92969+hitenergy);
+            } else if(detid.depth()==5) {
+              hittime -= 48.3157/(2.29903+hitenergy);
+            }
+// time window for signal=4
+            if(hittime>-10 && hittime<15) {
               pfrh = createHcalRecHit( detid,
                                        hitenergy,
                                        PFLayer::HCAL_ENDCAP,

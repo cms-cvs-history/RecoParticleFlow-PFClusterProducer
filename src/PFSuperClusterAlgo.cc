@@ -861,7 +861,7 @@ void PFSuperClusterAlgo::doClusteringWorker( const reco::PFClusterCollection& cl
   std::vector< reco::PFCluster >  mergeclusters;
   std::vector< bool >  lmergeclusters(clusters.size());
   for (unsigned short id=0; id<4;++id) {
-    cout << " merging with starting depth: "<<id<<endl;
+//    cout << " merging with starting depth: "<<id<<endl;
     for (unsigned short ic1=0; ic1<clusters.size();++ic1) {
       if( clusterdepth[ic1]==(unsigned)(1+id) ){
         if(!lmerge[ic1]) {

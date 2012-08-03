@@ -237,7 +237,10 @@ void PFRecHitProducerHCALUpgrade::createRecHits(vector<reco::PFRecHit>& rechits,
               hittime -= 38.6872/(1.48051+hitenergy);
             }
 // time window for signal=4
-            if(hittime>-10 && hittime<15) {
+            if(    (detid.depth()==1 && hittime>-20 && hittime<5) 
+                || (detid.depth()==2 && hittime>-17 && hittime<8) 
+                || (detid.depth()==3 && hittime>-15 && hittime<10) 
+              ) {
               pfrh = createHcalRecHit( detid,
                                        hitenergy,
                                        PFLayer::HCAL_BARREL1,
@@ -263,7 +266,12 @@ void PFRecHitProducerHCALUpgrade::createRecHits(vector<reco::PFRecHit>& rechits,
               hittime -= 48.3157/(2.29903+hitenergy);
             }
 // time window for signal=4
-            if(hittime>-10 && hittime<15) {
+            if(    (detid.depth()==1 && hittime>-20 && hittime<5) 
+                || (detid.depth()==2 && hittime>-19 && hittime<6) 
+                || (detid.depth()==3 && hittime>-18 && hittime<7) 
+                || (detid.depth()==4 && hittime>-17 && hittime<8) 
+                || (detid.depth()==5 && hittime>-15 && hittime<10) 
+              ) {
               pfrh = createHcalRecHit( detid,
                                        hitenergy,
                                        PFLayer::HCAL_ENDCAP,

@@ -133,7 +133,7 @@ PFSuperClusterAlgo::PFSuperClusterAlgo() :
 //  void setHistos(TFile* file) {
 
 //  file_=file;
-  file_ = TFile::Open("superclusteralgo.root", "recreate");
+//  file_ = TFile::Open("superclusteralgo.root", "recreate");
 
   if (file_) {
     file_->cd();
